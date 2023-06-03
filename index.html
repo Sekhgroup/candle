@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candle Website</title>
+  <style>
+   body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .candle-container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .candle-image {
+      max-height: 100vh;
+      max-width: 100%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="candle-container">
+      <img src="https://media3.giphy.com/media/j45DZBlMBGE08Mf6QG/200w.gif?cid=82a1493bz7wyp6jku3ybvhqx6efg5foldkmg8glw77ni7g1a&ep=v1_gifs_related&rid=200w.gif&ct=s" class="candle-image" alt="">
+    <img src="https://media1.giphy.com/media/l378oFbO0OzLKlvLa/giphy.gif?cid=6c09b952kbf4ryglltznw46hlvtrnc3afz2jix5erthduh3a&ep=v1_stickers_related&rid=giphy.gif&ct=s" class="candle-image" alt="Candle 1">
+    <img src="https://media1.giphy.com/media/Z3ItW1HFrle121wqc4/giphy.gif?cid=6c09b952czemvrzw5fbahi66vu0yxwitc6xlmbnkzod9ve9j&rid=giphy.gif&ct=s" class="candle-image" alt="Candle 2">
+    <img src="https://media0.giphy.com/media/M8QATWRp1lQwXvjvtx/giphy.gif?cid=6c09b9529n8b407lmq8rffi5g2trz1pzp7asmyf21608ofj8&ep=v1_stickers_related&rid=giphy.gif&ct=s" class="candle-image" alt="Candle 3">
+    <img src="https://i.pinimg.com/originals/24/1a/ca/241aca6abe6f2f512e206bff1d807ea5.gif" alt="" class="candle-image" style="width: 100%;">
+  </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      const candleImages = document.querySelectorAll('.candle-image');
+      let currentImage = 0;
+
+      // Add click event listener to the body
+      document.body.addEventListener('click', function() {
+        // Change the current image index
+        currentImage = (currentImage + 1) % candleImages.length;
+        // Call the function to update the displayed image
+        updateDisplayedImage();
+      });
+
+      // Function to update the displayed image
+      function updateDisplayedImage() {
+        // Hide all candle images
+        candleImages.forEach(function(image) {
+          image.style.display = 'none';
+        });
+        // Show the current candle image
+        candleImages[currentImage].style.display = 'block';
+      }
+
+      // Initially display the first image
+      updateDisplayedImage();
+    });
+  </script>
+</body>
+</html>
